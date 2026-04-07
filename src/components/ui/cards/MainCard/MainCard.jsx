@@ -1,9 +1,9 @@
 import "./main-card.css";
 import Button from "../../common/Button/Button";
 
-function MainCard({ id, title, subtitle, button, video, fileUrl }) {
+function MainCard({ id, title, subtitle, button, video, fileUrl, className }) {
   return (
-    <div className="card" key={id}>
+    <div className={className} key={id}>
       <div className="text-left">
         <h3 className="subtitle black">{title}</h3>
         <p className="text-base black">{subtitle}</p>

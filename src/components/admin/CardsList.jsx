@@ -73,6 +73,7 @@ export default function CardsList({ cards, onUpdate }) {
             button={card.button}
             video={card.video_url}
             fileUrl={card.file_url}
+            className="card-admin"
           />
 
           <div style={{ marginTop: 10, display: "flex", gap: 10 }}>

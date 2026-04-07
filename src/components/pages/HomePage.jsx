@@ -146,6 +146,7 @@ function HomePage() {
               button={card.button}
               video={card.video_url}
               fileUrl={card.file_url}
+              className="card"
             />
           ))}
         </div>
