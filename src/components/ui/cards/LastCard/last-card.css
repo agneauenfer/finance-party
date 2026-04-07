@@ -1,0 +1,11 @@
+.last-card{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: var(--text-gap);
+    background-image: url(./images/image-last-card.png);
+    background-size: cover; 
+    padding: var(--text-gap);
+    text-align: center;
+    border-radius: var(--radius-lg);
+    height: 300px;
+}

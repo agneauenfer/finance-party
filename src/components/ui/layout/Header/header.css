@@ -1,0 +1,146 @@
+.header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background: transparent;
+}
+
+.header--open {
+  background: inherit;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--header-height);
+  padding: 0 var(--space-md);
+}
+
+.header__nav-list {
+  display: flex;
+  gap: var(--header-height);
+  list-style: none;
+}
+
+
+.header__nav-list li {
+  transition: transform 0.3s ease;
+}
+
+.header__nav-list li:hover {
+  transform: scale(1.05);
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 20;
+}
+
+.burger span {
+  width: 100%;
+  height: 3px;
+  background: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.burger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.burger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.burger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 1024px) {
+  .header__nav-list {
+    gap: var(--space-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+
+  .header__nav {
+    display: block;
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background: #050400;
+    padding: 40px 20px;
+    opacity: 0;
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition:
+      transform 0.4s ease,
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+    z-index: 15;
+    overflow-y: auto;
+  }
+
+  .header__nav.open {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .hidden {
+    display: block;
+  }
+
+  .header__account {
+    display: none;
+  }
+
+  .header__nav-list {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .header__link {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 425px) {
+  :root {
+    --header-height: 72px;
+  }
+}
+
+@media (max-width: 375px) {
+  :root {
+    --header-height: 65px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 425px) {
+  :root {
+    --header-height: 65px;
+  }
+  
+  .header__nav-list {
+    justify-content: flex-start;
+    padding-top: 20px;
+  }
+}

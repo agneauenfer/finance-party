@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+ display: block;
+ max-width: 100%;
+}
+
+ul {
+ list-style: none;
+}
+
+body {
+ font-family: var(--font-family);
+ font-size: var(--font-size-base);
+ background: var(--color-bg);
+ line-height: 1.5;
+}
