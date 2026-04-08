@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { supabase } from "../../lib/supabase";
 import Button from "../ui/common/Button/Button";
+import { validateVideoCardForm } from "./validator";
 
 export default function CreateCardForm({ onSuccess }) {
   const [title, setTitle] = useState("");
@@ -8,28 +9,38 @@ export default function CreateCardForm({ onSuccess }) {
   const [videoUrl, setVideoUrl] = useState("");
   const [button, setButton] = useState("");
   const [file, setFile] = useState(null);
+  const [errors, setErrors] = useState({});
 
   const fileInputRef = useRef(null);
 
   const createCard = async () => {
-    if (!title) {
-      alert("Введите заголовок");
+    const validation = validateVideoCardForm({
+      title,
+      subtitle,
+      videoUrl,
+      button,
+      file,
+    });
+
+    if (!validation.isValid) {
+      setErrors(validation.errors);
+      const firstError = Object.values(validation.errors)[0];
+      alert(firstError);
       return;
     }
 
-    let fileUrl = null;
+    setErrors({});
 
-    if (file) {
-      fileUrl = await uploadFile();
-    }
+    const fileUrl = await uploadFile();
+    if (!fileUrl) return;
 
     const { error } = await supabase.from("cards_video").insert([
       {
-        title,
-        subtitle,
-        video_url: videoUrl,
+        title: title.trim(),
+        subtitle: subtitle.trim(),
+        video_url: videoUrl.trim(),
         file_url: fileUrl,
-        button: button, 
+        button: button.trim(),
       },
     ]);
 
@@ -41,6 +52,12 @@ export default function CreateCardForm({ onSuccess }) {
       setSubtitle("");
       setVideoUrl("");
       setButton("");
+      setFile(null);
+      setErrors({});
+
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
 
       onSuccess();
     }
@@ -49,7 +66,12 @@ export default function CreateCardForm({ onSuccess }) {
   const uploadFile = async () => {
     if (!file) return null;
 
-    const fileName = `${Date.now()}_${file.name}`;
+    // Очищаем имя файла: заменяем пробелы на _, убираем спецсимволы
+    const cleanName = file.name
+      .replace(/\s+/g, '_')
+      .replace(/[^a-zA-Z0-9._-]/g, '');
+    
+    const fileName = `${Date.now()}_${cleanName}`;
 
     const { error } = await supabase.storage
       .from("files")
@@ -62,50 +84,71 @@ export default function CreateCardForm({ onSuccess }) {
     }
 
     const { data } = supabase.storage.from("files").getPublicUrl(fileName);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = "";
-    }
-
     return data.publicUrl;
   };
 
   return (
     <div className="form-container">
       <p className="subtitle black">Создать карточку</p>
-      <form className="form">
-        <input
-          placeholder="Заголовок"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+      <form className="form" onSubmit={(e) => e.preventDefault()}>
+        <div className="form-field">
+          <input
+            placeholder="Заголовок"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className={errors.title ? "error" : ""}
+          />
+          {errors.title && <span className="error-text">{errors.title}</span>}
+        </div>
 
-        <textarea
-          rows="4"
-          cols="50"
-          placeholder="Подзаголовок"
-          type="text"
-          value={subtitle}
-          onChange={(e) => setSubtitle(e.target.value)}
-        >
-        </textarea>
+        <div className="form-field">
+          <textarea
+            rows="4"
+            cols="50"
+            placeholder="Подзаголовок"
+            value={subtitle}
+            onChange={(e) => setSubtitle(e.target.value)}
+            className={errors.subtitle ? "error" : ""}
+          />
+          <span className="char-count">{subtitle.length}/300</span>
+          {errors.subtitle && <span className="error-text">{errors.subtitle}</span>}
+        </div>
 
-        <input
-          placeholder="Ссылка на видео"
-          value={videoUrl}
-          onChange={(e) => setVideoUrl(e.target.value)}
-        />
+        <div className="form-field">
+          <input
+            placeholder="Ссылка на видео"
+            value={videoUrl}
+            onChange={(e) => setVideoUrl(e.target.value)}
+            className={errors.videoUrl ? "error" : ""}
+          />
+          {errors.videoUrl && <span className="error-text">{errors.videoUrl}</span>}
+        </div>
 
-        <input
-          placeholder="Название для кнопки"
-          value={button}
-          onChange={(e) => setButton(e.target.value)}
-        />
+        <div className="form-field">
+          <input
+            placeholder="Название для кнопки"
+            value={button}
+            onChange={(e) => setButton(e.target.value)}
+            maxLength={30}
+            className={errors.button ? "error" : ""}
+          />
+          <span className="char-count">{button.length}/30</span>
+          {errors.button && <span className="error-text">{errors.button}</span>}
+        </div>
 
-        <input
-          type="file"
-          ref={fileInputRef}
-          onChange={(e) => setFile(e.target.files[0])}
-        />
+        <div className="form-field">
+          <label className="file-label">
+            Название файла на английском, без пробелов
+          </label>
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={(e) => setFile(e.target.files[0])}
+            className={errors.file ? "error" : ""}
+          />
+          {file && <span className="file-name">Выбран: {file.name}</span>}
+          {errors.file && <span className="error-text">{errors.file}</span>}
+        </div>
 
         <Button onClick={createCard}>Создать</Button>
       </form>
