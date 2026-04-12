@@ -1,11 +1,11 @@
 :root {
-  --color-primary: #50426A;
-  --color-primary-light: #E0DDF2;
-  --color-bg: #F4F4F4;
+  --color-primary: #50426a;
+  --color-primary-light: #e0ddf2;
+  --color-bg: #f4f4f4;
   --color-text: #000;
   --color-text-light: var(--color-bg);
   --color-text-muted: #999;
-  --color-text-inverse: #281C54;
+  --color-text-inverse: #281c54;
 
   --space-xs: 4px;
   --space-sm: 8px;
@@ -21,7 +21,7 @@
   --gap-m: 50px;
   --section-gap: 80px;
 
-  --font-family: 'Manrope', sans-serif;
+  --font-family: "Manrope", sans-serif;
   --font-size-sm: 14px;
   --font-size-base: 16px;
   --font-size-subtitle: 32px;
@@ -34,6 +34,12 @@
   --transition-base: 0.3s ease;
 }
 
+@media (min-width: 1800px) {
+  :root {
+    --max-width: 1600px;
+  }
+}
+
 @media (max-width: 1024px) {
   :root {
     --max-width: 900px;
@@ -42,10 +48,14 @@
     --section-gap: 50px;
     --font-size-sm: 12px;
     --font-size-base: 14px;
-    --font-size-lg: 16px;
-    --font-size-xl: 20px;
+    --font-size-subtitle: 20px;
     --font-size-title: 32px;
-    --font-size-xxl: 48px;
+  }
+}
+
+@media (max-width: 860px) {
+  :root {
+    --max-width: 800px;
   }
 }
 
@@ -54,18 +64,18 @@
     --max-width: 700px;
     --text-gap: 10px;
     --gap-m: 25px;
-    --section-gap: 30px;
   }
 }
 
-@media (max-width: 431px){
+@media (max-width: 431px) {
   :root {
     --max-width: 400px;
   }
 }
 
-@media (max-width: 376px){
+@media (max-width: 376px) {
   :root {
     --max-width: 350px;
+    --font-size-title: 28px;
   }
 }

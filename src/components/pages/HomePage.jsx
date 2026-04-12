@@ -89,7 +89,7 @@ function HomePage() {
         </div>
       </Section>
       <Section className="about-section" id="about">
-        <h2 className="title">Что такое финансовый мальчишник и девичник?</h2>
+        <h2 className="title">Что такое финансовый девичник и мальчишник?</h2>
         <p className="text-base black">
           Серия мероприятий и материалов, которые помогают парам: согласовать
           семейные цели, научиться вести совместный бюджет, распределять

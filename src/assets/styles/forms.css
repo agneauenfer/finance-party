@@ -132,3 +132,24 @@ input[type="file"].drag-over {
   color: #3498db;
   margin-top: 5px;
 }
+
+.buttons{
+  margin-top: 10;
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 768px){
+  .form-container {
+    width: 100%;
+    padding: var(--space-md);
+  }
+
+  .login-card {
+    width: 100%;
+    margin: 50px auto;
+  }
+  .buttons{
+    flex-direction: column;
+  }
+}

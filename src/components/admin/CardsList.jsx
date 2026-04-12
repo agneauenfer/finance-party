@@ -76,7 +76,7 @@ export default function CardsList({ cards, onUpdate }) {
             className="card-admin"
           />
 
-          <div style={{ marginTop: 10, display: "flex", gap: 10 }}>
+          <div className="buttons">
             <Button variant="outline" onClick={() => openEdit(card)}>
               Редактировать
             </Button>

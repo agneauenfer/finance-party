@@ -57,7 +57,7 @@ export default function ImageCardList({ cards, onUpdate }) {
       <p className="subtitle">Мероприятия</p>
 
       {cards.map((card) => (
-        <div key={card.id} style={{ width: "50%" }}>
+        <div key={card.id} style={{ maxWidth: "360px" }}>
           <MeroCard
             id={card.id}
             title={card.title}
@@ -65,7 +65,7 @@ export default function ImageCardList({ cards, onUpdate }) {
             image_url={card.image_url}
           />
 
-          <div style={{ marginTop: 10, display: "flex", gap: 10 }}>
+          <div className="buttons">
             <Button variant="outline" onClick={() => openEdit(card)}>
               Редактировать
             </Button>
