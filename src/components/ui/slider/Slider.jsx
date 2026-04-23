@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import Slide from "./Slide";
+import Slide from "./slide"
 import slidesData from "../../data/slider";
 import "./slider.css";
 
