@@ -37,10 +37,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Layout>
           <ScrollToHash />
           <Routes>
-            <Route path="/finance/" element={<HomePage />} />
-            <Route path="/finance/login" element={<LoginPage />} />
-            <Route path="/finance/admin" element={<AdminPage />} />
-            <Route path="/finance/*" element={<NotFound />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/*" element={<NotFound />} />
           </Routes>
         </Layout>
       </BrowserRouter>

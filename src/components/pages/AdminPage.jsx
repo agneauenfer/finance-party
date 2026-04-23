@@ -45,7 +45,7 @@ export default function AdminPage() {
       const { data: sessionData } = await supabase.auth.getSession();
 
       if (!sessionData.session) {
-        navigate("/finance/login", { replace: true });
+        navigate("/login", { replace: true });
         return;
       }
 
@@ -61,7 +61,7 @@ export default function AdminPage() {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    navigate("/finance/login", { replace: true });
+    navigate("/login", { replace: true });
   };
 
   if (loading) return null;

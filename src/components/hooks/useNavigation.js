@@ -6,8 +6,8 @@ export function useNavigation() {
   const location = useLocation();
 
   const goToAnchor = (anchor) => {
-    if (location.pathname !== "/finance") {
-      navigate(`/finance/#${anchor}`);
+    if (location.pathname !== "/") {
+      navigate(`/#${anchor}`);
     } else {
       const element = document.getElementById(anchor);
       if (element) {

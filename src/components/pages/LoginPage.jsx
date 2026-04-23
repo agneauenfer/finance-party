@@ -18,7 +18,7 @@ export default function LoginPage() {
     if (error) {
       alert(error.message);
     } else {
-      navigate("/finance/admin");
+      navigate("/admin");
     }
   };
 

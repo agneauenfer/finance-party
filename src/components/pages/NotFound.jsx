@@ -16,7 +16,7 @@ export default function NotFound() {
           Такой страницы не существует.
         </p>
 
-        <Button to="/finance/" variant="outline">На главную</Button>
+        <Button to="/" variant="outline">На главную</Button>
     </Section>
   );
 }

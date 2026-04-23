@@ -39,7 +39,7 @@ function Footer() {
             Мероприятия
           </a>
           <br />
-          <Link to="/finance/admin" className="text-sm link white">
+          <Link to="/admin" className="text-sm link white">
             Панель разработчика
           </Link>
         </div>
