@@ -106,11 +106,13 @@ function HomePage() {
         <div className="greet-card" key={CardData[1].id} onClick={handleClick2}>
           <h3 className="subtitle white">{CardData[1].title}</h3>
           <p className="text-base white">{CardData[1].subtitle}</p>
+          <p className="note">Нажмите, чтобы узнать больше</p>
         </div>
 
         <div className="greet-card" key={CardData[2].id} onClick={handleClickTest}>
           <h3 className="subtitle white">{CardData[2].title}</h3>
           <p className="text-base white">{CardData[2].subtitle}</p>
+          <p className="note">Нажмите, чтобы узнать больше</p>
         </div>
 
         <ModalText1 

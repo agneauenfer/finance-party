@@ -16,6 +16,13 @@
   font-size: var(--font-size-base);
 }
 
+.note{
+  margin-top: 10px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  color: #c8c8c8;
+}
+
 .black {
   color: var(--color-text);
 }

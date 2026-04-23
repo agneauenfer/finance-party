@@ -45,3 +45,9 @@
   background-color: var(--color-primary);
   color: var(--color-text-inverse);
 }
+
+@media (max-width: 600px) {
+  .modal-container {
+    padding: var(--space-lg);
+  }
+}
