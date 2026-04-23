@@ -4,7 +4,7 @@ section {
 }
 
 .greet {
-  background-image: url(./images/image-greet.webp);
+  background-image: url(/images/image-greet.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -43,7 +43,7 @@ section {
 }
 
 .special-card {
-  background-image: url(./images/image-card.webp);
+  background-image: url(/images/image-card.webp);
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
