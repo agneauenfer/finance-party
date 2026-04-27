@@ -20,8 +20,8 @@ function MainCard({ id, title, subtitle, button, video, fileUrl, className }) {
       <div className="video-right">
         <iframe
           src={video}
-          width="350"
-          height="197"
+          width="370"
+          height="208"
           frameBorder="0"
           allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
           allowFullScreen

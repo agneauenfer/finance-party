@@ -84,7 +84,7 @@ function HomePage() {
                 договариваться и выстраивать новые финансовые стратегии в браке
               </p>
             </div>
-            <Button>Получить гайд</Button>
+            <Button to="#material">Получить гайд</Button>
           </div>
         </div>
       </Section>
