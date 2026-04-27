@@ -1,4 +1,5 @@
 import useBodyScrollLock from "./useBodyScrollLock";
+import Test from "../test/Test"
 import "./modals.css";
 
 function ModalTest({ isOpen, onClose }) {
@@ -18,11 +19,7 @@ function ModalTest({ isOpen, onClose }) {
         </button>
 
         <div className="modal-info">
-          <h3 className="subtitle">Тест на финансовую совместимость</h3>
-          
-          <div className="modal-details">
-            <p className="text-base text">Тут будет тест для пар</p>
-          </div>
+            <Test/>
         </div>
 
       </div>

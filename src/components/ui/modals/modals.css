@@ -50,4 +50,7 @@
   .modal-container {
     padding: var(--space-lg);
   }
+  .modal-overlay{
+    padding: 5px;
+  }
 }

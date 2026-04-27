@@ -44,3 +44,8 @@
     text-decoration: none;
 
 }
+
+.step-title{
+  font-family: var(--font-family);
+  font-size: 64px;
+}
