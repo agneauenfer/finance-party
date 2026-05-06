@@ -34,7 +34,7 @@ export default function ImageCardList({ cards, onUpdate }) {
   };
 
   const getPathFromUrl = (url) => {
-    const parts = url.split("/storage/v1/object/public/files/");
+    const parts = url.split("/storage/v1/object/public/images/");
     return parts[1];
   };
 
@@ -44,7 +44,7 @@ export default function ImageCardList({ cards, onUpdate }) {
 
     if (card.image_url) {
       const path = getPathFromUrl(card.image_url);
-      await supabase.storage.from("files").remove([path]);
+      await supabase.storage.from("images").remove([path]);
     }
 
     await supabase.from("cards_image").delete().eq("id", card.id);
