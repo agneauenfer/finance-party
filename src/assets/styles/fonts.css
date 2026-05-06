@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
 @font-face {
-  font-family: 'Stem', sans-serif;
+  font-family: "Stem", sans-serif;
   src: url('/fonts/Stem-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
@@ -7,7 +9,7 @@
 }
 
 @font-face {
-  font-family: 'Manrope' , sans-serif;
+  font-family: "Manrope" , sans-serif;
   src: url('/fonts/Manrope.woff') format('woff');
   font-weight: 500;
   font-style: normal;
